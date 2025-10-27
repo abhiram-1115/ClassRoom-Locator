@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 import connectDB from "./config/db.js";
 import mongoose from 'mongoose';
 
-//import authRoutes from './routes/authRoutes.js';
+import authRoutes from './routes/authRoutes.js';
 //import  schuedulesRoutes from './routes/schedulesRoutes.js';
 import classroomRoutes from './routes/classroomRoutes.js';
 //import bookingRoutes from "./routes/bookingRoutes.js";
@@ -18,7 +18,7 @@ await mongoose.connect(process.env.MONGO_URI);
 app.use(cors());
 app.use(express.json());
 
-//app.use('/api/auth', authRoutes);
+app.use('/api/auth', authRoutes);
 //app.use('/api/schedules', schuedulesRoutes);
 app.use('/api/classrooms', classroomRoutes);
 //app.use('/api/bookings', bookingRoutes);

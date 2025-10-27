@@ -8,10 +8,14 @@ router.get('/', async (req, res) => {
     res.json(classrooms);
 });
 
-router.post('/', async (req,res)=>{
-    const newClassroom = new Classroom(req.body);
-    await newClassroom.save();
-    res.status(201).json(newClassroom); 
+router.post("/", async (req, res) => {
+  try {
+    const classroom = new Classroom(req.body);
+    await classroom.save();
+    res.status(201).json({ message: "Classroom added successfully", classroom });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
 });
 
 export default router;

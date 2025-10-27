@@ -18,9 +18,9 @@ await mongoose.connect(process.env.MONGO_URI);
 app.use(cors());
 app.use(express.json());
 
-app.use('/api/auth', authRoutes);
+app.use('/auth', authRoutes);
 //app.use('/api/schedules', schuedulesRoutes);
-app.use('/api/classrooms', classroomRoutes);
+app.use('/classrooms', classroomRoutes);
 //app.use('/api/bookings', bookingRoutes);
 
 const PORT = process.env.PORT || 5000;
